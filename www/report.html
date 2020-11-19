@@ -14,9 +14,7 @@
     </ons-list>
   </div>
   <script>
-    ons.getScriptPage().onShow = async function() {
-      $('#date').val(dayjs().format('YYYY-MM-DD'));
-
+    ons.getScriptPage().onInit = async function() {
       // 日報を閲覧するボタンを押した時の処理
       $('#view-report').on('click', async e => {
         // 検索対象の日付を取得
@@ -26,6 +24,11 @@
         // 取得した日報を表示
         viewReports(reports);
       })
+    }
+
+    ons.getScriptPage().onShow = async function() {
+      $('#date').val(dayjs().format('YYYY-MM-DD'));
+
     }
 
     // 日報の取得

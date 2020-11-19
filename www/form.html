@@ -45,11 +45,11 @@
     ons.getScriptPage().onShow = async function() {
       $('#form-title').html('日報登録フォーム');
       const date = new Date(dayjs().format('YYYY-MM-DD'));
+      $('#day').val(dayjs(date).format('YYYY-MM-DD'));
       const report = await findOrCreate(date);
-      if (report) {
+      if (report.objectId) {
         // 日報があれば、その内容を表示
       }
-      $('#day').val(dayjs(date).format('YYYY-MM-DD'));
     }
 
     async function findOrCreate(date) {
