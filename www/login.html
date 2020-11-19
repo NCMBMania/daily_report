@@ -17,6 +17,10 @@
   <script>
     ons.getScriptPage().onShow = function() {
       $('#form-title').html('新規登録/ログイン');
+    }
+    
+    ons.getScriptPage().onInit = function() {
+      $('#form-title').html('新規登録/ログイン');
 
       // ログインボタンを押した時の処理です
       $('#login').on('click', async e => {

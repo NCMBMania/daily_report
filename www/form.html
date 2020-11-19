@@ -18,6 +18,13 @@
   </ons-navigator>
   <script>
     ons.getScriptPage().onInit = async function() {
+      // 日報を登録するボタンを押した時の処理です
+      $('#send-report').on('click', async e => {
+        // 情報の取得
+        const date = new Date($('#day').val());
+        // 日報の保存処理
+      });
+
       const user = ncmb.User.getCurrentUser();
       if (!user) {
         // 未ログインの場合
@@ -33,13 +40,6 @@
         // ログイン画面に遷移
         return $('#formNav')[0].pushPage('login.html');
       }
-      
-      // 日報を登録するボタンを押した時の処理です
-      $('#send-report').on('click', async e => {
-        // 情報の取得
-        const date = new Date($('#day').val());
-        // 日報の保存処理
-      });
     }
 
     ons.getScriptPage().onShow = async function() {
